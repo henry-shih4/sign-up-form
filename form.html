@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+
+</head>
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <div class="img-box">
+            <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png" alt="">
+            <div class="title">ODIN</div>
+        </div>
+       
+        </div>
+
+<div class="main">
+<div class="header">
+    <div class="intro">
+        <p class="p1">This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+        <p class="p15">Sign up now to get started</p>
+        <p class="p2">You know you want to.</p>
+        <p class="p3">Let's do this!</p>
+    </div>
+</div>
+<form onsubmit ="return verifyPassword()">
+<div class="name-box">
+    <div class="box">
+        <label for="firstName">FIRST NAME</label>
+        <input required type="text" id="firstName" name="firstName">
+    </div>
+    <div class="box">
+        <label for="lastName">LAST NAME</label>
+        <input type="text" id="lastName" name="lastName">
+    </div>
+</div>
+
+
+<div class="contact-box">
+    <div class="box">
+        <label for="email">EMAIL</label>
+        <input required type="email" id="email" name="email">
+    </div>
+    <div class="box">
+        <label for="phone">PHONE NUMBER</label>
+        <input maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" type="tel" id="phone" name="phone" placeholder="123-456-7890">
+    </div>
+</div>
+
+
+<div class="password-box">
+    <div class="box">
+        <label for="password">PASSWORD</label>
+        <input required minlength="8" type="password" id="password" name="password">
+        <div class="pwrequire" id="pwrequire">Password must be at least 8 characters</div>
+    </div>
+    <div class="box">
+        <label for="conf-password">CONFIRM PASSWORD</label>
+        <input required minlength="8" type="password" id="conf-password" name="conf-password">
+        <p id="message">       </p>
+    </div>
+</div>
+
+<div class="divider"></div>
+<button type="submit">Create Account</button>
+<button type="reset">Reset</button>
+</form>
+<div class="existing">Already have an account?<div class="bold">Log in</div></div>
+</div>
+</div>
+
+
+<script>
+
+    function verifyPassword(){
+let password = document.getElementById("password").value;
+let confirmed =  document.getElementById("conf-password").value;
+
+if(password == "") {  
+     document.getElementById("message").innerHTML = "**Fill the password please!";  
+     return false;  
+  }  
+
+if (confirmed !== password){
+    document.getElementById("message").innerHTML= "Password does not match";
+    return false;
+}
+
+
+}
+
+let password = document.getElementById("password");
+let passwordreq = document.getElementById("pwrequire");
+
+password.addEventListener('focus', function(){
+    passwordreq.classList.remove('pwrequire');
+passwordreq.classList.add("pwrequire-show");
+});
+
+password.addEventListener('blur', function(){
+    passwordreq.classList.add('pwrequire');
+passwordreq.classList.remove("pwrequire-show");
+});
+
+
+    </script> 
+
+</body>
+</html>
